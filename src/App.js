@@ -20,6 +20,15 @@ import TermsOfService from "./pages/TermsOfService";
 import AccessibilityStatement from "./pages/AccessibilityStatement";
 import CookiePolicy from "./pages/CookiePolicy";
 import NotFound from "./pages/NotFound";
+import Assessments from "./pages/Assessments";
+import PHQ9Assessment from "./pages/PHQ9Assessment";
+import GAD7Assessment from "./pages/GAD7Assessment";
+import GHQAssessment from "./pages/GHQAssessment";
+import MBTIAssessment from "./pages/MBTIAssessment";
+import Chat from "./pages/Chat";
+import PeerSupport from "./pages/PeerSupport";
+import Auth from "./pages/Auth";
+import PsychiatristBooking from "./pages/PsychiatristBooking";
 
 const queryClient = new QueryClient();
 
@@ -52,6 +61,17 @@ const App = () => (
             <Route path="/about" element={<About />} />
             <Route path="/stories" element={<Stories />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/assessments" element={<Assessments />} />
+            <Route path="/assessment/phq9" element={<PHQ9Assessment />} />
+            <Route path="/assessment/gad7" element={<GAD7Assessment />} />
+            <Route path="/assessment/ghq" element={<GHQAssessment />} />
+            <Route path="/assessment/mbti" element={<MBTIAssessment />} />
+            <Route path="/chat" element={<Chat />} />
+            <Route path="/peer-support" element={<PeerSupport />} />
+            <Route path="/auth" element={<Auth />} />
+            <Route path="/login" element={<Auth />} />
+            <Route path="/signup" element={<Auth />} />
+            <Route path="/psychiatrists" element={<PsychiatristBooking />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="/accessibility" element={<AccessibilityStatement />} />

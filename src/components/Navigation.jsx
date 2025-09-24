@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from "./ui/button";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/psych-sync-logo.png";
+import LanguageSelector from "./LanguageSelector";
 
 const Navigation = () => {
   const location = useLocation();
@@ -25,7 +26,7 @@ const Navigation = () => {
           </Link>
           
           {/* Navigation Links */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             <Link 
               to="/" 
               className={`text-sm font-medium transition-colors hover:text-primary hover-lift animate-fade-in animate-delay-100 ${
@@ -35,43 +36,64 @@ const Navigation = () => {
               Home
             </Link>
             <Link 
-              to="/services" 
-              className={`text-sm font-medium transition-colors hover:text-primary hover-lift animate-fade-in animate-delay-200 ${
-                isActive('/services') ? 'text-primary' : 'text-foreground'
+              to="/assessments" 
+              className={`text-sm font-medium transition-colors hover:text-primary hover-lift animate-fade-in animate-delay-150 ${
+                isActive('/assessments') ? 'text-primary' : 'text-foreground'
               }`}
             >
-              Services
+              Assessments
             </Link>
             <Link 
-              to="/about" 
-              className={`text-sm font-medium transition-colors hover:text-primary hover-lift animate-fade-in animate-delay-300 ${
-                isActive('/about') ? 'text-primary' : 'text-foreground'
+              to="/chat" 
+              className={`text-sm font-medium transition-colors hover:text-primary hover-lift animate-fade-in animate-delay-200 ${
+                isActive('/chat') ? 'text-primary' : 'text-foreground'
               }`}
             >
-              About
+              AI Therapist
+            </Link>
+            <Link 
+              to="/peer-support" 
+              className={`text-sm font-medium transition-colors hover:text-primary hover-lift animate-fade-in animate-delay-250 ${
+                isActive('/peer-support') ? 'text-primary' : 'text-foreground'
+              }`}
+            >
+              Peer Support
+            </Link>
+            <Link 
+              to="/psychiatrists" 
+              className={`text-sm font-medium transition-colors hover:text-primary hover-lift animate-fade-in animate-delay-300 ${
+                isActive('/psychiatrists') ? 'text-primary' : 'text-foreground'
+              }`}
+            >
+              Psychiatrists
             </Link>
             <Link 
               to="/stories" 
-              className={`text-sm font-medium transition-colors hover:text-primary hover-lift animate-fade-in animate-delay-400 ${
+              className={`text-sm font-medium transition-colors hover:text-primary hover-lift animate-fade-in animate-delay-350 ${
                 isActive('/stories') ? 'text-primary' : 'text-foreground'
               }`}
             >
               Stories
             </Link>
             <Link 
-              to="/contact" 
-              className={`text-sm font-medium transition-colors hover:text-primary hover-lift animate-fade-in animate-delay-500 ${
-                isActive('/contact') ? 'text-primary' : 'text-foreground'
+              to="/about" 
+              className={`text-sm font-medium transition-colors hover:text-primary hover-lift animate-fade-in animate-delay-400 ${
+                isActive('/about') ? 'text-primary' : 'text-foreground'
               }`}
             >
-              Contact
+              About
             </Link>
           </div>
           
-          {/* CTA Button */}
-          <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium px-6 animate-pulse-slow hover:animate-none hover-glow">
-            Sign up
-          </Button>
+          {/* Language Selector and CTA Button */}
+          <div className="flex items-center gap-4">
+            <LanguageSelector />
+            <Link to="/auth">
+              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium px-6 animate-pulse-slow hover:animate-none hover-glow">
+                Sign In
+              </Button>
+            </Link>
+          </div>
         </div>
       </div>
     </nav>

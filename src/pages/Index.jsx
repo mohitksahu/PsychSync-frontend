@@ -6,6 +6,7 @@ import HowItWorks from "../components/HowItWorks";
 import Footer from "../components/Footer";
 import { Card } from "../components/ui/card";
 import { Button } from "../components/ui/button";
+import { Link } from "react-router-dom";
 import journeyBackground from "../assets/journey-background.jpg";
 
 const Index = () => {
@@ -36,24 +37,34 @@ const Index = () => {
   console.log('Index component rendering');
   const features = [
     {
-      title: "MBTI-Based Emotional Profiling",
-      description: "Understand your personality type and emotional patterns through scientifically validated assessments.",
-      icon: "🧠"
+      title: "Mental Health Assessments",
+      description: "Take PHQ-9, GAD-7, GHQ, and MBTI tests to understand your mental health and personality type.",
+      icon: "📊"
     },
     {
-      title: "LLM-Driven Safety Classification", 
-      description: "AI-powered risk assessment ensures you get the appropriate level of support for your needs.",
-      icon: "🛡️"
+      title: "AI-Powered Therapist", 
+      description: "Get personalized mental health guidance from our AI therapist trained on psychological best practices.",
+      icon: "�"
     },
     {
-      title: "Risk-Based Routing",
-      description: "Automatic connection to peer support for low-risk situations or professional help when needed.",
-      icon: "🗺️"
+      title: "Peer Support Network",
+      description: "Connect with trained student volunteers and faculty mentors who understand your journey.",
+      icon: "�"
     },
     {
-      title: "Secure PDF Reports",
-      description: "Download watermarked reports for personal reflection or secure sharing with healthcare providers.",
+      title: "Professional Psychiatrists",
+      description: "Book appointments with licensed psychiatrists when you need professional medical care.",
+      icon: "�‍⚕️"
+    },
+    {
+      title: "Personalized Reports",
+      description: "Download detailed mental health reports with your assessment results and recommendations.",
       icon: "📄"
+    },
+    {
+      title: "Multi-Language Support",
+      description: "Access mental health support in your preferred language with our translation feature.",
+      icon: "🌍"
     }
   ];
 
@@ -96,7 +107,7 @@ const Index = () => {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {features.map((feature, index) => (
                 <Card key={index} className="p-6 border-secondary/30 hover:shadow-gentle transition-all duration-300 text-center">
                   <div className="space-y-4">
@@ -180,27 +191,23 @@ const Index = () => {
                 Take the first step towards better mental health with our quick, confidential assessment.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button 
-                  size="lg" 
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg font-medium shadow-gentle"
-                  onClick={() => {
-                    const element = document.querySelector('#what-brings-you-here');
-                    if (element) window.scrollTo({ top: element.offsetTop, behavior: 'smooth' });
-                  }}
-                >
-                  Start Your Assessment
-                </Button>
-                <Button 
-                  variant="outline" 
-                  size="lg"
-                  className="border-white/30 hover:bg-white/10 text-foreground px-8 py-4 text-lg font-medium"
-                  onClick={() => {
-                    const element = document.querySelector('#how-it-works');
-                    if (element) window.scrollTo({ top: element.offsetTop, behavior: 'smooth' });
-                  }}
-                >
-                  Learn More
-                </Button>
+                <Link to="/assessments">
+                  <Button 
+                    size="lg" 
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg font-medium shadow-gentle"
+                  >
+                    Start Your Assessment
+                  </Button>
+                </Link>
+                <Link to="/chat">
+                  <Button 
+                    variant="outline" 
+                    size="lg"
+                    className="border-white/30 hover:bg-white/10 text-foreground px-8 py-4 text-lg font-medium"
+                  >
+                    Try AI Therapist
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
