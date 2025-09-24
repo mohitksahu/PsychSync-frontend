@@ -1,4 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
+// Gemini API integration
+const GEMINI_API_KEY = process.env.REACT_APP_GEMINI_API_KEY;
+const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
@@ -41,49 +44,69 @@ const Chat = () => {
     scrollToBottom();
   }, [messages]);
 
+  // Gemini API call for AI response
   const generatePersonalizedResponse = async (userMessage) => {
-    // This would integrate with Gemini API in a real implementation
-    // For now, we'll simulate personalized responses based on user profile
-    
-    const responses = {
-      anxiety: [
-        "I understand you're feeling anxious. As an INFP, you might find creative outlets like journaling or art helpful for processing these feelings.",
-        "Anxiety can be overwhelming. Given your moderate GAD-7 score, let's try some grounding techniques that work well for sensitive personalities like yours.",
-        "Your INFP nature means you feel things deeply. Here are some personalized coping strategies for anxiety..."
-      ],
-      depression: [
-        "I hear that you're struggling with low mood. Your PHQ-9 results suggest mild depression, which is very treatable.",
-        "As an INFP, you might benefit from activities that align with your values and allow for self-expression.",
-        "Depression can make everything feel heavy. Let's explore some gentle, personality-matched strategies..."
-      ],
-      stress: [
-        "Stress can be particularly challenging for INFPs who are highly sensitive to their environment.",
-        "Your GHQ results show some distress. Let's work on stress management techniques that suit your personality type.",
-        "Given your preference for introspection, let's explore mindfulness techniques that INFPs often find helpful..."
-      ],
-      general: [
-        "I'm here to listen and support you. Can you tell me more about what's on your mind?",
-        "Thank you for sharing. Based on your personality type and assessment results, I can offer some personalized guidance.",
-        "It's important that you're reaching out for support. How can I best help you today?"
-      ]
-    };
-
-    // Simple keyword matching for demonstration
-    const lowerMessage = userMessage.toLowerCase();
-    let responseCategory = 'general';
-    
-    if (lowerMessage.includes('anxiety') || lowerMessage.includes('anxious') || lowerMessage.includes('worried')) {
-      responseCategory = 'anxiety';
-    } else if (lowerMessage.includes('depression') || lowerMessage.includes('depressed') || lowerMessage.includes('sad')) {
-      responseCategory = 'depression';
-    } else if (lowerMessage.includes('stress') || lowerMessage.includes('stressed') || lowerMessage.includes('overwhelmed')) {
-      responseCategory = 'stress';
+    if (!GEMINI_API_KEY) {
+      return "[Gemini API key not set. Please configure REACT_APP_GEMINI_API_KEY in your .env file.]";
     }
+    try {
+      const systemPrompt = `You are an empathetic AI mental health assistant. You are speaking to someone with MBTI type ${mockUserProfile?.mbtiType || 'unknown'}, PHQ-9 score ${mockUserProfile?.assessmentResults?.phq9?.score || 'unknown'} (${mockUserProfile?.assessmentResults?.phq9?.level || 'unknown'}), GAD-7 score ${mockUserProfile?.assessmentResults?.gad7?.score || 'unknown'} (${mockUserProfile?.assessmentResults?.gad7?.level || 'unknown'}). Provide supportive, practical, and safe advice. Keep responses concise and empathetic. Avoid medical diagnosis.
 
-    const categoryResponses = responses[responseCategory];
-    const randomResponse = categoryResponses[Math.floor(Math.random() * categoryResponses.length)];
-    
-    return randomResponse;
+User message: ${userMessage}
+
+Please respond as a caring mental health assistant:`;
+
+      const body = {
+        contents: [
+          {
+            parts: [
+              {
+                text: systemPrompt
+              }
+            ]
+          }
+        ]
+      };
+
+      console.log('Sending request to Gemini API:', JSON.stringify(body, null, 2));
+      console.log('API URL:', `${GEMINI_API_URL}?key=${GEMINI_API_KEY ? 'KEY_SET' : 'NO_KEY'}`);
+
+      const response = await fetch(`${GEMINI_API_URL}?key=${GEMINI_API_KEY}`, {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+      });
+
+      console.log('Response status:', response.status, response.statusText);
+      
+      const data = await response.json();
+      console.log('Gemini API response:', JSON.stringify(data, null, 2));
+
+      if (!response.ok) {
+        console.error('API Error:', data);
+        return "I apologize, but I'm having trouble connecting to my AI service right now. Please try again in a moment.";
+      }
+
+      if (data && data.candidates && data.candidates.length > 0) {
+        const candidate = data.candidates[0];
+        if (candidate.content && candidate.content.parts && candidate.content.parts.length > 0) {
+          return candidate.content.parts[0].text;
+        }
+      }
+      
+      // Check for safety ratings that might block the response
+      if (data && data.candidates && data.candidates[0] && data.candidates[0].finishReason === 'SAFETY') {
+        return "I understand you're looking for support. Let me try to help you in a different way. Could you tell me more about what you're experiencing?";
+      }
+      
+      console.log('Unexpected response format:', data);
+      return "I'm here to help, but I'm having trouble processing your message right now. Could you try rephrasing it?";
+    } catch (err) {
+      console.error('Error calling Gemini API:', err);
+      return "I'm experiencing some technical difficulties. Please try again in a moment, and I'll do my best to help you.";
+    }
   };
 
   const handleSendMessage = async (e) => {
@@ -246,6 +269,15 @@ const Chat = () => {
               </div>
             </CardContent>
           </Card>
+
+          {/* API Status */}
+          {!GEMINI_API_KEY && (
+            <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <p className="text-sm text-yellow-800">
+                ⚠️ Gemini API key not configured. Please add REACT_APP_GEMINI_API_KEY to your .env file.
+              </p>
+            </div>
+          )}
 
           {/* Quick Actions */}
           <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-3">
