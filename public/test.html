@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psych Sync Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #255D9C;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #255D9C;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #1e4b7c;
+        }
+        .debug-section {
+            margin-top: 30px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+        .status {
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .status.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .status.error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Psych Sync - Test Page</h1>
+        <p>This is a static HTML page to test if the issue is with React or with the server setup.</p>
+        
+        <div class="debug-section">
+            <h2>Debugging Information</h2>
+            <p>Current date and time: <span id="datetime"></span></p>
+            <p>Browser: <span id="browser"></span></p>
+            
+            <div class="status success">
+                <p>✅ If you can see this page, the web server is working correctly.</p>
+            </div>
+            
+            <div id="react-status" class="status error">
+                <p>❌ React page is not loading. See the full React debugging page for more information.</p>
+            </div>
+        </div>
+        
+        <a href="/" class="btn">Go to React App</a>
+    </div>
+
+    <script>
+        // Update datetime
+        const now = new Date();
+        document.getElementById('datetime').textContent = now.toLocaleString();
+        
+        // Show browser info
+        document.getElementById('browser').textContent = navigator.userAgent;
+    </script>
+</body>
+</html>

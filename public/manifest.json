@@ -1,0 +1,17 @@
+{
+  "name": "Psych Sync",
+  "short_name": "Psych Sync",
+  "description": "Personalized Mental Health Support for Students",
+  "icons": [
+    {
+      "src": "/icons/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#003366",
+  "background_color": "#ffffff"
+}
