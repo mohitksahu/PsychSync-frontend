@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import Navigation from "../components/Navigation";
 import HeroSection from "../components/HeroSection";
 import WhatBringsYouHere from "../components/WhatBringsYouHere";
@@ -34,55 +35,56 @@ const Index = () => {
     };
   }, []);
   
+  const { t } = useTranslation();
   console.log('Index component rendering');
   const features = [
     {
-      title: "Mental Health Assessments",
-      description: "Take PHQ-9, GAD-7, GHQ, and MBTI tests to understand your mental health and personality type.",
+      title: t('home.features.mental_health_assessments.title'),
+      description: t('home.features.mental_health_assessments.description'),
       icon: "📊"
     },
     {
-      title: "AI-Powered Therapist", 
-      description: "Get personalized mental health guidance from our AI therapist trained on psychological best practices.",
-      icon: "�"
+      title: t('home.features.ai_therapist.title'),
+      description: t('home.features.ai_therapist.description'),
+      icon: "🤖"
     },
     {
-      title: "Peer Support Network",
-      description: "Connect with trained student volunteers and faculty mentors who understand your journey.",
-      icon: "�"
+      title: t('home.features.peer_support.title'),
+      description: t('home.features.peer_support.description'),
+      icon: "🧑‍🤝‍🧑"
     },
     {
-      title: "Professional Psychiatrists",
-      description: "Book appointments with licensed psychiatrists when you need professional medical care.",
-      icon: "�‍⚕️"
+      title: t('home.features.professional_psychiatrists.title'),
+      description: t('home.features.professional_psychiatrists.description'),
+      icon: "🧑‍⚕️"
     },
     {
-      title: "Personalized Reports",
-      description: "Download detailed mental health reports with your assessment results and recommendations.",
+      title: t('home.features.personalized_reports.title'),
+      description: t('home.features.personalized_reports.description'),
       icon: "📄"
     },
     {
-      title: "Multi-Language Support",
-      description: "Access mental health support in your preferred language with our translation feature.",
+      title: t('home.features.multi_language_support.title'),
+      description: t('home.features.multi_language_support.description'),
       icon: "🌍"
     }
   ];
 
   const testimonials = [
     {
-      quote: "Psych Sync helped me understand my stress patterns and connected me with a peer who really got what I was going through.",
-      author: "Anonymous Student",
-      role: "Junior, Psychology Major"
+      quote: t('home.testimonials.0.quote'),
+      author: t('home.testimonials.0.author'),
+      role: t('home.testimonials.0.role')
     },
     {
-      quote: "The assessment was quick but thorough. I finally felt heard and got practical next steps instead of generic advice.",
-      author: "Anonymous Student", 
-      role: "Senior, Engineering"
+      quote: t('home.testimonials.1.quote'),
+      author: t('home.testimonials.1.author'),
+      role: t('home.testimonials.1.role')
     },
     {
-      quote: "Having my results in a PDF I could share with my counselor made the transition to professional help so much smoother.",
-      author: "Anonymous Student",
-      role: "Sophomore, Liberal Arts"
+      quote: t('home.testimonials.2.quote'),
+      author: t('home.testimonials.2.author'),
+      role: t('home.testimonials.2.role')
     }
   ];
 
@@ -100,10 +102,10 @@ const Index = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Powerful Features
+                {t('home.powerful_features')}
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Comprehensive tools designed to support your mental health journey
+                {t('home.comprehensive_tools')}
               </p>
             </div>
             
@@ -132,10 +134,10 @@ const Index = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Student Stories
+                {t('home.student_stories')}
               </h2>
               <p className="text-lg text-muted-foreground">
-                Real experiences from students who found their path to better mental health
+                {t('home.real_experiences')}
               </p>
             </div>
             
@@ -161,7 +163,7 @@ const Index = () => {
             
             <div className="text-center mt-12">
               <Button variant="outline" className="border-secondary hover:bg-secondary/50">
-                Read More Stories
+                {t('home.read_more_stories')}
               </Button>
             </div>
           </div>
@@ -185,10 +187,10 @@ const Index = () => {
           <div className="relative z-10 container mx-auto px-4 text-center">
             <div className="max-w-3xl mx-auto space-y-8">
               <h2 className="text-3xl md:text-4xl font-black text-foreground">
-                Ready to start your journey?
+                {t('home.ready_to_start')}
               </h2>
               <p className="text-lg font-bold text-foreground">
-                Take the first step towards better mental health with our quick, confidential assessment.
+                {t('home.take_first_step')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/assessments">
@@ -196,7 +198,7 @@ const Index = () => {
                     size="lg" 
                     className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg font-medium shadow-gentle"
                   >
-                    Start Your Assessment
+                    {t('home.start_assessment')}
                   </Button>
                 </Link>
                 <Link to="/chat">
@@ -205,7 +207,7 @@ const Index = () => {
                     size="lg"
                     className="border-white/30 hover:bg-white/10 text-foreground px-8 py-4 text-lg font-medium"
                   >
-                    Try AI Therapist
+                    {t('home.try_ai_therapist')}
                   </Button>
                 </Link>
               </div>

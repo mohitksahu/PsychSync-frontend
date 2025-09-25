@@ -1,8 +1,9 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const TestPage = () => {
+  const { t } = useTranslation();
   console.log('TestPage rendered!');
-  
   return (
     <div style={{ 
       padding: '40px', 
@@ -13,10 +14,10 @@ const TestPage = () => {
       borderRadius: '8px',
       boxShadow: '0 4px 8px rgba(0,0,0,0.1)'
     }}>
-      <h1 style={{ color: 'blue' }}>Test Page</h1>
-      <p>This is a minimal test page to check if React rendering is working.</p>
-      <p>If you see this, then the basic rendering pipeline is functional.</p>
-      <p style={{ fontWeight: 'bold' }}>The issue must be in one of the components or CSS.</p>
+      <h1 style={{ color: 'blue' }}>{t('test_page.title')}</h1>
+      <p>{t('test_page.desc1')}</p>
+      <p>{t('test_page.desc2')}</p>
+      <p style={{ fontWeight: 'bold' }}>{t('test_page.desc3')}</p>
     </div>
   );
 };

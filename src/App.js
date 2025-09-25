@@ -1,4 +1,7 @@
+import UserDashboard from "./pages/UserDashboard";
+            <Route path="/user-dashboard" element={<UserDashboard />} />
 import React from 'react';
+import './i18n';
 import { Toaster } from "./components/ui/toaster";
 import { Toaster as Sonner } from "./components/ui/sonner";
 import { TooltipProvider } from "./components/ui/tooltip";
@@ -6,6 +9,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Index from "./pages/Index";
+import ResourceHub from "./pages/ResourceHub";
+import AdminDashboard from "./pages/AdminDashboard";
 import MinimalIndex from "./pages/MinimalIndex";
 import IndexDebug from "./pages/IndexDebug";
 import ComponentDebug from "./pages/ComponentDebug";
@@ -43,6 +48,7 @@ const BasicPage = () => (
   </div>
 );
 
+
 const App = () => (
   <ErrorBoundary>
     <QueryClientProvider client={queryClient}>
@@ -51,6 +57,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Routes>
+            {/* ...existing routes... */}
             <Route path="/" element={<Index />} />
             <Route path="/minimal" element={<MinimalIndex />} />
             <Route path="/debug" element={<IndexDebug />} />
@@ -59,6 +66,8 @@ const App = () => (
             <Route path="/basic" element={<BasicPage />} />
             <Route path="/services" element={<Services />} />
             <Route path="/about" element={<About />} />
+            <Route path="/resources" element={<ResourceHub />} />
+            <Route path="/admin-dashboard" element={<AdminDashboard />} />
             <Route path="/stories" element={<Stories />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/assessments" element={<Assessments />} />

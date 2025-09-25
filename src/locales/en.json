@@ -1,0 +1,140 @@
+{
+  "user_dashboard": {
+    "title": "User Dashboard",
+    "user_management": {
+      "title": "User Management",
+      "add_edit_remove": "Add, edit, or remove users (patients, counselors, therapists).",
+      "view_progress": "View mental health progress for each user.",
+      "assign_therapist": "Assign therapists or counselors."
+    },
+    "session_management": {
+      "title": "Session Management",
+      "schedule": "Schedule therapy/consultation sessions.",
+      "reminders": "Automated reminders (SMS, email, WhatsApp).",
+      "track_attendance": "Track attendance and completion of sessions."
+    },
+    "assessments_dashboard": {
+      "title": "Psychological Assessments",
+      "upload_manage": "Upload/manage quizzes, stress/anxiety/depression tests.",
+      "auto_results": "Auto-generated results with visual charts.",
+      "track_improvements": "Track improvements over time."
+    },
+    "assessments": {
+      "title": "Psychological Assessments",
+      "upload_manage": "Upload/manage quizzes, stress/anxiety/depression tests.",
+      "auto_results": "Auto-generated results with visual charts.",
+      "track_improvements": "Track improvements over time."
+    },
+    "content_management": {
+      "title": "Content Management",
+      "upload": "Upload blogs, motivational content, meditation guides, or exercises.",
+      "control_visibility": "Control which content shows up on the user side."
+    },
+    "mood_tracker": {
+      "title": "Mood Tracker Heatmap",
+      "desc": "Color-coded calendar view of users’ mood entries. Helps visualize overall mental health trends."
+    },
+    "ai_sentiment": {
+      "title": "AI Sentiment Insights",
+      "desc": "AI analyzes journal entries / chat interactions and generates emotional insights. Dashboard shows which emotions are most common (stress, joy, anxiety)."
+    },
+    "engagement": {
+      "title": "Engagement Dashboard",
+      "track_usage": "Track how many users are actively checking resources, journaling, or booking sessions.",
+      "gamify": "Gamify engagement with points or streaks."
+    },
+    "crisis_alerts": {
+      "title": "Crisis Alerts Panel",
+      "highlight_risk": "Highlight users at risk (suicidal thoughts, extremely low mood).",
+      "priority_actions": "Priority alerts with therapist action buttons."
+    },
+    "wellness_scorecards": {
+      "title": "Wellness Scorecards",
+      "desc": "Aggregate data into a 'Wellness Index' for each user. Graphs to show before vs. after therapy progress."
+    }
+  },
+  "home": "Home",
+  "assessments": "Assessments",
+  "ai_therapist": "AI Therapist",
+  "peer_support": "Peer Support",
+  "psychiatrists": "Psychiatrists",
+  "stories": "Stories",
+  "about": "About",
+  "sign_in": "Sign In",
+  "test_page": {
+    "title": "Test Page",
+    "desc1": "This is a minimal test page to check if React rendering is working.",
+    "desc2": "If you see this, then the basic rendering pipeline is functional.",
+    "desc3": "The issue must be in one of the components or CSS."
+  },
+  "resource_hub": {
+    "title": "Resource Hub",
+    "intro": "Videos, relaxation audio, and mental wellness guides in regional languages.",
+    "videos": "Videos",
+    "audio": "Relaxation Audio",
+    "guides": "Wellness Guides",
+    "sample_video": "Sample psychoeducational video (regional language)",
+    "sample_audio": "Sample relaxation audio (regional language)",
+    "sample_guide": "Sample mental wellness guide (regional language)"
+  },
+  "admin_dashboard": {
+    "title": "Admin Dashboard",
+    "intro": "Anonymous data analytics for authorities to recognize trends and plan interventions.",
+    "analytics": "Anonymous Data Analytics",
+    "analytics_placeholder": "(Analytics charts and trends will appear here.)"
+  },
+  "home_page": {
+    "features": {
+      "mental_health_assessments": {
+        "title": "Mental Health Assessments",
+        "description": "Take PHQ-9, GAD-7, GHQ, and MBTI tests to understand your mental health and personality type."
+      },
+      "ai_therapist": {
+        "title": "AI-Powered Therapist",
+        "description": "Get personalized mental health guidance from our AI therapist trained on psychological best practices."
+      },
+      "peer_support": {
+        "title": "Peer Support Network",
+        "description": "Connect with trained student volunteers and faculty mentors who understand your journey."
+      },
+      "professional_psychiatrists": {
+        "title": "Professional Psychiatrists",
+        "description": "Book appointments with licensed psychiatrists when you need professional medical care."
+      },
+      "personalized_reports": {
+        "title": "Personalized Reports",
+        "description": "Download detailed mental health reports with your assessment results and recommendations."
+      },
+      "multi_language_support": {
+        "title": "Multi-Language Support",
+        "description": "Access mental health support in your preferred language with our translation feature."
+      }
+    },
+    "powerful_features": "Powerful Features",
+    "comprehensive_tools": "Comprehensive tools designed to support your mental health journey",
+    "student_stories": "Student Stories",
+    "real_experiences": "Real experiences from students who found their path to better mental health",
+    "read_more_stories": "Read More Stories",
+    "testimonials": [
+      {
+        "quote": "Psych Sync helped me understand my stress patterns and connected me with a peer who really got what I was going through.",
+        "author": "Anonymous Student",
+        "role": "Junior, Psychology Major"
+      },
+      {
+        "quote": "The assessment was quick but thorough. I finally felt heard and got practical next steps instead of generic advice.",
+        "author": "Anonymous Student",
+        "role": "Senior, Engineering"
+      },
+      {
+        "quote": "Having my results in a PDF I could share with my counselor made the transition to professional help so much smoother.",
+        "author": "Anonymous Student",
+        "role": "Sophomore, Liberal Arts"
+      }
+    ],
+    "ready_to_start": "Ready to start your journey?",
+    "take_first_step": "Take the first step towards better mental health with our quick, confidential assessment.",
+    "start_assessment": "Start Your Assessment",
+    "try_ai_therapist": "Try AI Therapist"
+  }
+}
